@@ -400,7 +400,7 @@ func parseChassisPowerInfoPowerControl(ch chan<- prometheus.Metric, chassisID st
 	defer wg.Done()
 	name := chassisPowerInfoPowerControl.Name
 	id := chassisPowerInfoPowerControl.MemberID
-	pm := chassisPowerInfoPowerControl.PowerMetrics
+	pm := chassisPowerInfoPowerControl
 	chassisPowerVotageLabelvalues := []string{"power_wattage", chassisID, name, id}
 	ch <- prometheus.MustNewConstMetric(chassisMetrics["chassis_power_consumed_watts"].desc, prometheus.GaugeValue, float64(pm.PowerConsumedWatts), chassisPowerVotageLabelvalues...)
 }
